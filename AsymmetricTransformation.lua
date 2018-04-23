@@ -1,4 +1,6 @@
 -- Transform function for Paper
+-- @repo https://github.com/RoStrap/Material/
+-- @rostrap AsymmetricTransformation
 -- @author Validark
 
 -- AsymmetricTransformation(GuiObject Button, UDim2 EndSize)
@@ -41,8 +43,8 @@ local function AsymmetricTransformation(Button, EndSize)
 		-- Expanding
 		Clone:Destroy()
 		local Duration = 0.375
-		local HeightStart = Duration*0.1
-		local WidthDuration = Duration*0.75
+		local HeightStart = Duration * 0.1
+		local WidthDuration = Duration * 0.75
 
 		Connection = Heartbeat:Connect(function(Step)
 			ElapsedTime = ElapsedTime + Step
@@ -51,8 +53,8 @@ local function AsymmetricTransformation(Button, EndSize)
 
 				if WidthDuration > ElapsedTime then
 					local WidthAlpha = Standard(ElapsedTime, 0, 1, WidthDuration)
-					XScale = XStartScale + WidthAlpha*XScaleChange
-					XOffset = StartX.Offset + WidthAlpha*XOffsetChange
+					XScale = XStartScale + WidthAlpha * XScaleChange
+					XOffset = StartX.Offset + WidthAlpha * XOffsetChange
 				else
 					XScale = Button.Size.X.Scale
 					XOffset = Button.Size.X.Offset
@@ -60,8 +62,8 @@ local function AsymmetricTransformation(Button, EndSize)
 
 				if ElapsedTime > HeightStart then
 					local HeightAlpha = Standard(ElapsedTime - HeightStart, 0, 1, Duration)
-					YScale = YStartScale + HeightAlpha*YScaleChange
-					YOffset = YStartOffset + HeightAlpha*YOffsetChange
+					YScale = YStartScale + HeightAlpha * YScaleChange
+					YOffset = YStartOffset + HeightAlpha * YOffsetChange
 				else
 					YScale = YStartScale
 					YOffset = YStartOffset
@@ -77,8 +79,8 @@ local function AsymmetricTransformation(Button, EndSize)
 		-- Shrinking
 		Clone:Destroy()
 		local Duration = 0.225
-		local WidthStart = Duration*0.15
-		local HeightDuration = Duration*0.95
+		local WidthStart = Duration * 0.15
+		local HeightDuration = Duration * 0.95
 
 		Connection = Heartbeat:Connect(function(Step)
 			ElapsedTime = ElapsedTime + Step
@@ -87,8 +89,8 @@ local function AsymmetricTransformation(Button, EndSize)
 	
 				if HeightDuration > ElapsedTime then
 					local HeightAlpha = Standard(ElapsedTime, 0, 1, HeightDuration)
-					YScale = YStartScale + HeightAlpha*YScaleChange
-					YOffset = YStartOffset + HeightAlpha*YOffsetChange
+					YScale = YStartScale + HeightAlpha * YScaleChange
+					YOffset = YStartOffset + HeightAlpha * YOffsetChange
 				else
 					YScale = Button.Size.Y.Scale
 					YOffset = Button.Size.Y.Offset
@@ -96,8 +98,8 @@ local function AsymmetricTransformation(Button, EndSize)
 	
 				if ElapsedTime > WidthStart then
 					local WidthAlpha = Standard(ElapsedTime - WidthStart, 0, 1, Duration)
-					XScale = XStartScale + WidthAlpha*XScaleChange
-					XOffset = XStartOffset + WidthAlpha*XOffsetChange
+					XScale = XStartScale + WidthAlpha * XScaleChange
+					XOffset = XStartOffset + WidthAlpha * XOffsetChange
 				else
 					XScale = XStartScale
 					XOffset = XStartOffset
